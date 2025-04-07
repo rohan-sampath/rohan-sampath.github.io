@@ -3,8 +3,8 @@ layout: default
 title: Rohan Sampath
 ---
 
-# Hello, I'm Rohan Sampath
+# Hello, I'm Rohan
 
-This is my personal website, built with GitHub Pages and Jekyll.
+This is my personal site, powered by Jekyll and GitHub Pages.
 
-Stay tuned for more.
+More to come soon!
