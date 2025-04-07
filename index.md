@@ -5,7 +5,7 @@ title: Rohan Sampath | Personal Webpage
 
 <h1 style="font-size: 2.5em; font-weight: bold; margin-bottom: 0.2em;">Rohan Sampath</h1>
 <p style="font-size: 1.2em; margin-top: 0;">Builder of AI Products | Entrepreneur</p>
-<p><a href="https://www.copilotup.com" target="_blank">Former Co-founder and CEO of Copilot</a></p>
+<p>Former Co-founder and CEO of <a href="https://www.copilotup.com" target="_blank">Copilot</a></p>
 
 <p>
   <a href="https://github.com/rohansampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width:24px; margin-right:10px;"></a>
