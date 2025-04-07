@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohan Sampath</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 40px;
+      background-color: #fff;
+      color: #222;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+    }
+    .social-icons img {
+      width: 24px;
+      margin-right: 10px;
+    }
+    .tabs {
+      margin-top: 20px;
+    }
+    .tab-button {
+      padding: 10px 20px;
+      border: none;
+      border-bottom: 2px solid transparent;
+      font-size: 1em;
+      cursor: pointer;
+      background: none;
+    }
+    .tab-button.active {
+      border-bottom: 2px solid #000;
+      font-weight: bold;
+    }
+    .tab-content {
+      margin-top: 20px;
+    }
+    img.profile-pic {
+      width: 150px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="A58ED7CB-44D4-46DA-AC83-4B475DE16D26.png" alt="Rohan Sampath" class="profile-pic">
+
+  <h1>Rohan Sampath</h1>
+  <p style="font-size: 1.2em;">Builder of AI Products | Entrepreneur</p>
+  <p><a href="https://www.copilotup.com" target="_blank">Former Co-founder and CEO of Copilot</a></p>
+
+  <p class="social-icons">
+    <a href="https://github.com/rohansampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub"></a>
+    <a href="https://www.linkedin.com/in/rohansampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="https://twitter.com/rohansampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/twitter.svg" alt="Twitter"></a>
+  </p>
+
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab('bio', this)">BIO</button>
+    <button class="tab-button" onclick="showTab('apps', this)">AI APPLICATIONS</button>
+  </div>
+
+  <div id="bio" class="tab-content">
+    <p>I like building AI Applications. I co-founded and was CEO of <a href="https://www.copilotup.com" target="_blank">Copilot</a>, where we helped sales teams spot risk in their sales deals by fine-tuning custom risk models on their CRM and conversational data.</p>
+    <ul>
+      <li>Co-built the early product</li>
+      <li>Led a team that fine-tuned models and built a retrieval-augmented generation (RAG) system for over 20 customers, including Fortune 100 companies such as IBM</li>
+      <li>Hired and managed a team of 10 engineers</li>
+      <li>Raised over $3M in venture capital funding, and led product, engineering, and go-to-market efforts</li>
+    </ul>
+    <p>I've worked on several open-source projects in areas such as AI agentic software, OCR models, edge/mobile model deployment, distillation, and model evaluation. My open-source AI applications can be found <a href="#apps">here</a>.</p>
+    <p>I did a Master's in Computer Science at Stanford University, focused on Natural Language Processing and Understanding. I worked closely with Chris Manning and served as a teaching assistant for two of his classes — CS224N (Natural Language Processing with Deep Learning) and CS276 (Information Retrieval and Web Search).</p>
+    <p>Before that, I was a consultant at McKinsey & Company, working with tech companies on innovation strategy. I also hold a B.A. in Economics and an M.S. in Management Science and Engineering, both from Stanford University.</p>
+  </div>
+
+  <div id="apps" class="tab-content" style="display:none;">
+    <p>Coming soon: A full list of my AI projects with links, objectives, technical goals, and GitHub repos.</p>
+  </div>
+
+  <script>
+    function showTab(tabName, element) {
+      const tabs = document.getElementsByClassName('tab-content');
+      for (const tab of tabs) {
+        tab.style.display = 'none';
+      }
+      document.getElementById(tabName).style.display = 'block';
+
+      const buttons = document.getElementsByClassName('tab-button');
+      for (const btn of buttons) {
+        btn.classList.remove('active');
+      }
+      element.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
