@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rohan Sampath | AI Product Builder, Entrepreneur, Podcast Host, and Research Enthusiast">
   <title>Rohan Sampath</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -41,6 +42,7 @@
     }
     .tabs {
       margin-top: 30px;
+      overflow-x: auto;
     }
     .tab-button {
       padding: 10px 20px;
@@ -58,12 +60,25 @@
     }
     .tab-content {
       margin-top: 20px;
+      scroll-margin-top: 100px;
     }
     .social-icons a[href*="linkedin"] img {
       filter: invert(19%) sepia(87%) saturate(1596%) hue-rotate(183deg) brightness(92%) contrast(92%);
     }
     .social-icons a[href*="twitter"] img {
       filter: invert(41%) sepia(98%) saturate(747%) hue-rotate(178deg) brightness(92%) contrast(89%);
+    }
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-text h1 {
+        font-size: 2.2em;
+      }
+      .header-text p {
+        font-size: 1.1em;
+      }
     }
   </style>
 </head>
@@ -107,15 +122,15 @@
     <p>Coming soon: A full list of my AI projects with links, objectives, technical goals, and GitHub repos.</p>
   </div>
 
-<div id="other" class="tab-content" style="display:none;">
-  <p><strong>🎙️ Podcast:</strong> I ran the <a href="https://open.spotify.com/show/7uTvcZ0wzAWS647bNCgNIh" target="_blank">AIs Wide Open Podcast</a> — a show featuring CEOs and executives on how they’re implementing AI in their businesses, as well as technical discussions with academics on AI trends. Past guests include the CEOs of G2, PandaDoc, People.ai, and Degreed (all with $1B+ valuations).</p>
+  <div id="other" class="tab-content" style="display:none;">
+    <p><strong>🎙️ Podcast:</strong> I ran the <a href="https://open.spotify.com/show/7uTvcZ0wzAWS647bNCgNIh" target="_blank">AIs Wide Open Podcast</a> — a show featuring CEOs and executives on how they’re implementing AI in their businesses, as well as technical discussions with academics on AI trends. Past guests include the CEOs of G2, PandaDoc, People.ai, and Degreed (all with $1B+ valuations).</p>
 
-  <p><strong>🧠 Interests:</strong> My other interests include Geopolitics, Linguistics, Psephology (Election Analysis), Cartography, Swimming, Tennis, and Road Biking.</p>
+    <p><strong>🧠 Interests:</strong> My other interests include Geopolitics, Linguistics, Psephology (Election Analysis), Cartography, Swimming, Tennis, and Road Biking.</p>
 
-  <p>I created <a href="https://github.com/rohan-sampath/india-constituencies-game" target="_blank">Guess the Constituency</a> — a game for the Indian General Election 2024, and I'm currently working on <a href="https://github.com/rohan-sampath/343Canada" target="_blank">343Canada</a> — a website to predict and model Canadian federal elections.</p>
+    <p>I created <a href="https://github.com/rohan-sampath/india-constituencies-game" target="_blank">Guess the Constituency</a> — a game for the Indian General Election 2024, and I'm currently working on <a href="https://github.com/rohan-sampath/343Canada" target="_blank">343Canada</a> — a website to predict and model Canadian federal elections.</p>
 
-  <p><strong>🌍 Identity:</strong> I'm a <a href="https://en.wikipedia.org/wiki/Third_culture_kid" target="_blank">Third Culture Kid</a> — having lived in 4 countries (US, Canada, UAE, and India), and speak 4 languages (English, Hindi, Tamil, and Arabic).</p>
-</div>
+    <p>🌍 I'm a <a href="https://en.wikipedia.org/wiki/Third_culture_kid" target="_blank">Third Culture Kid</a> — having lived in 4 countries (US, Canada, UAE, and India), and speak 4 languages (English, Hindi, Tamil, and Arabic).</p>
+  </div>
 
   <script>
     function navigateTo(tabName) {
@@ -123,7 +138,9 @@
       for (const tab of tabs) {
         tab.style.display = 'none';
       }
-      document.getElementById(tabName).style.display = 'block';
+      const target = document.getElementById(tabName);
+      target.style.display = 'block';
+      target.scrollIntoView({ behavior: 'smooth' });
 
       const buttons = document.getElementsByClassName('tab-button');
       for (const btn of buttons) {
