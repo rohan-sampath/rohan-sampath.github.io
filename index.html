@@ -17,21 +17,23 @@
     .header {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 40px;
       flex-wrap: wrap;
+      margin-bottom: 30px;
     }
     img.profile-pic {
-      width: 180px;
+      width: 220px;
       border-radius: 12px;
     }
     .header-text h1 {
-      font-size: 2.8em;
-      margin-bottom: 0.2em;
+      font-size: 3em;
+      margin-bottom: 0.3em;
       font-weight: 600;
     }
     .header-text p {
-      margin: 4px 0;
-      font-size: 1.2em;
+      margin: 10px 0;
+      font-size: 1.3em;
+      line-height: 1.6;
     }
     .social-icons img {
       width: 24px;
@@ -52,7 +54,7 @@
     }
     .tab-button.active {
       border-bottom: 3px solid #6a0dad;
-      color: #000;
+      color: #6a0dad;
     }
     .tab-content {
       margin-top: 20px;
@@ -63,11 +65,6 @@
     .social-icons a[href*="twitter"] img {
       filter: invert(41%) sepia(98%) saturate(747%) hue-rotate(178deg) brightness(92%) contrast(89%);
     }
-    .email {
-      margin-top: 10px;
-      font-size: 0.95em;
-      color: #555;
-    }
   </style>
 </head>
 <body>
@@ -77,8 +74,8 @@
     <div class="header-text">
       <h1>Rohan Sampath</h1>
       <p>Builder of AI Products | Entrepreneur</p>
-      <p>Co-founder and CEO of <a href="https://www.copilotup.com" target="_blank">Copilot</a></p>
-      <p class="email">📧 rohan.s94 ατ gmail.com</p>
+      <p>Former Co-founder and CEO of <a href="https://www.copilotup.com" target="_blank">Copilot</a></p>
+      <p style="font-size: 1em; color: #555;">rohan.s94 ατ gmail.com</p>
       <p class="social-icons">
         <a href="https://github.com/rohan-sampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub"></a>
         <a href="https://www.linkedin.com/in/rohansampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn"></a>
@@ -88,9 +85,9 @@
   </div>
 
   <div class="tabs">
-    <button class="tab-button active" onclick="showTab('bio', this)">BIO</button>
-    <button class="tab-button" onclick="showTab('apps', this)">PROJECTS</button>
-    <button class="tab-button" onclick="showTab('other', this)">OTHER</button>
+    <button class="tab-button active" onclick="navigateTo('bio')">BIO</button>
+    <button class="tab-button" onclick="navigateTo('projects')">PROJECTS</button>
+    <button class="tab-button" onclick="navigateTo('other')">OTHER</button>
   </div>
 
   <div id="bio" class="tab-content">
@@ -101,12 +98,12 @@
       <li>Hired and managed a team of 10 engineers</li>
       <li>Raised over $3M in venture capital funding, and led product, engineering, and go-to-market efforts</li>
     </ul>
-    <p>I've worked on several open-source projects in areas such as AI agentic software, OCR models, edge/mobile model deployment, distillation, and model evaluation. My open-source AI applications can be found <a href="#apps">here</a>.</p>
+    <p>I've worked on several open-source projects in areas such as AI agentic software, OCR models, edge/mobile model deployment, distillation, and model evaluation. My open-source AI applications can be found <a href="#projects">here</a>.</p>
     <p>I did a Master's in Computer Science at Stanford University, focused on Natural Language Processing and Understanding. I worked closely with Chris Manning and served as a teaching assistant for two of his classes — CS224N (Natural Language Processing with Deep Learning) and CS276 (Information Retrieval and Web Search).</p>
     <p>Before that, I was a consultant at McKinsey & Company, working with tech companies on innovation strategy. I also hold a B.A. in Economics and an M.S. in Management Science and Engineering, both from Stanford University.</p>
   </div>
 
-  <div id="apps" class="tab-content" style="display:none;">
+  <div id="projects" class="tab-content" style="display:none;">
     <p>Coming soon: A full list of my AI projects with links, objectives, technical goals, and GitHub repos.</p>
   </div>
 
@@ -115,7 +112,7 @@
   </div>
 
   <script>
-    function showTab(tabName, element) {
+    function navigateTo(tabName) {
       const tabs = document.getElementsByClassName('tab-content');
       for (const tab of tabs) {
         tab.style.display = 'none';
@@ -125,9 +122,17 @@
       const buttons = document.getElementsByClassName('tab-button');
       for (const btn of buttons) {
         btn.classList.remove('active');
+        if (btn.innerText.toLowerCase() === tabName) {
+          btn.classList.add('active');
+        }
       }
-      element.classList.add('active');
+
+      history.pushState(null, '', '/' + tabName);
     }
+
+    // Initial route check
+    const path = window.location.pathname.replace('/', '') || 'bio';
+    navigateTo(path);
   </script>
 
 </body>
