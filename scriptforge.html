@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offline Translation | Rohan Sampath</title>
+  <title>ScriptForge | Rohan Sampath</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -50,9 +50,9 @@
   </style>
 </head>
 <body>
-  <h1>Offline Translation</h1>
+  <h1>ScriptForge: LLM-Aided Script Writer</h1>
   <p>
-    <a href="https://github.com/rohan-sampath/OfflineTranslation" target="_blank">
+    <a href="#" target="_blank">
       <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 24px; height: 24px;">
     </a>
   </p>
@@ -61,57 +61,66 @@
     <button class="tab-button active" onclick="switchTab('overview')">Overview</button>
     <button class="tab-button" onclick="switchTab('technical-goals')">Technical Goals</button>
     <button class="tab-button" onclick="switchTab('architecture')">Architecture</button>
-    <button class="tab-button" onclick="switchTab('design-doc')">Design Doc</button>
+    <button class="tab-button" onclick="switchTab('features')">Features</button>
     <button class="tab-button" onclick="switchTab('evaluation')">Evaluation</button>
     <button class="tab-button" onclick="switchTab('next-steps')">Next Steps</button>
   </div>
 
   <div id="overview" class="tab-content active">
     <h2>Description</h2>
-    <p>Offline Translation is an iOS app that translates text from photos without using cloud services. It enables users—especially travelers or people in low-connectivity areas—to take or upload a picture, automatically detect the language, and receive a translation in their chosen language.</p>
+    <p>ScriptForge is a writer assistant tool that helps you draft scripts in multiple formats and genres. It lets you preserve creative control over your style, vision, and story while dramatically lowering the time to write a script.</p>
 
     <h2>Use Case</h2>
-    <p>Ideal for travelers who need to translate road signs, menus, or business signs in areas with poor or no internet connectivity.</p>
+    <p>Ideal for screenwriters, playwrights, and content creators who want to accelerate their writing process without sacrificing creative control.</p>
 
     <h2>Market Comparison</h2>
-    <p>Apple and Google both offer offline translation apps. These rely on downloading "language kits" for each supported language pair. Offline Translation evaluates whether performance can be improved with alternative local models or architectures.</p>
+    <p>Unlike generic AI writing assistants, ScriptForge is specifically designed for script formats with fine-grained control over how often the LLM "Writer Agent" takes turns versus the human writer.</p>
 
     <h2>Commercial Feasibility</h2>
-    <p>1/5 – This app is not commercially competitive with Apple/Google offerings and is primarily built for technical exploration.</p>
+    <p>3/5 – Currently exploring potential commercial applications as well as copyright implications.</p>
   </div>
 
   <div id="technical-goals" class="tab-content">
     <h2>Technical Goals</h2>
     <ul>
-      <li>Deploy small local models to iOS devices</li>
-      <li>Use Apple’s <code>CoreML</code>, <code>Vision</code>, <code>Language</code>, and <code>Translation</code> frameworks</li>
-      <li>Practice Swift development and mobile deployment</li>
-      <li>Compare modular vs. end-to-end translation pipelines</li>
+      <li>Create a specialized LLM agent for script writing assistance</li>
+      <li>Implement fine-grained control over AI vs. human writing turns</li>
+      <li>Support multiple script formats (screenplay, stage play, TV, etc.)</li>
+      <li>Preserve writer's voice and creative vision</li>
+      <li>Explore Model Context Protocol for enhanced capabilities</li>
     </ul>
   </div>
 
   <div id="architecture" class="tab-content">
-    <h2>Architectures Compared</h2>
-    <p>The app will be developed in three versions with the same UI:</p>
+    <h2>Architecture Overview</h2>
+    <p>ScriptForge is built with the following components:</p>
     <ol>
-      <li><strong>Apple-native pipeline</strong>: CoreML OCR, language detection, and translation APIs.</li>
-      <li><strong>Hybrid pipeline</strong>: CoreML + third-party local models (e.g., MLKit) to enhance each step.</li>
-      <li><strong>End-to-end vision-language model</strong>: A single on-device model to go directly from image to translation.</li>
+      <li><strong>Writer Agent</strong>: An LLM-based agent that understands script formats and storytelling principles</li>
+      <li><strong>Format Manager</strong>: Ensures proper formatting based on the selected script type</li>
+      <li><strong>Turn Controller</strong>: Manages the balance between AI and human writing contributions</li>
+      <li><strong>Context Manager</strong>: Maintains story coherence and character consistency</li>
     </ol>
   </div>
 
-  <div id="design-doc" class="tab-content">
-    <h2>Design Doc</h2>
-    <img src="OfflineTranslation_DesignDoc.png" alt="Design Document for Offline Translation" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px; margin-top: 10px;">
+  <div id="features" class="tab-content">
+    <h2>Key Features</h2>
+    <ul>
+      <li>Multiple script format support (screenplay, stage play, TV)</li>
+      <li>Adjustable AI assistance levels</li>
+      <li>Character voice preservation</li>
+      <li>Plot consistency checking</li>
+      <li>Format validation and correction</li>
+      <li>Export to industry-standard formats</li>
+    </ul>
   </div>
 
   <div id="evaluation" class="tab-content">
     <h2>Evaluation Methodology</h2>
     <ul>
-      <li>OCR accuracy across different scripts and lighting conditions</li>
-      <li>Correctness of language detection</li>
-      <li>Translation quality compared to Apple Translate</li>
-      <li>Speed and latency on-device</li>
+      <li>Writing time reduction compared to fully manual writing</li>
+      <li>Format accuracy and adherence to industry standards</li>
+      <li>User satisfaction with creative control</li>
+      <li>Script quality assessment by industry professionals</li>
     </ul>
 
     <h3>Results & Learnings</h3>
@@ -120,13 +129,16 @@
 
   <div id="next-steps" class="tab-content">
     <h2>Next Steps</h2>
-    <h3>UI Updates</h3>
+    <h3>Feature Updates</h3>
     <ul>
-      <li>Enable real-time camera capture in addition to photo uploads</li>
+      <li>Add support for more script formats</li>
+      <li>Implement collaborative writing mode</li>
+      <li>Enhance character consistency tracking</li>
     </ul>
-    <h3>Model Updates</h3>
+    <h3>Technical Updates</h3>
     <ul>
-      <li>Explore smaller multimodal models that run efficiently on iOS</li>
+      <li>Explore integration with specialized writing models</li>
+      <li>Implement advanced test-time compute capabilities</li>
     </ul>
   </div>
 
