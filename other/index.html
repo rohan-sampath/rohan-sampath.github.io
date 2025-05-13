@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rohan Sampath | AI Product Builder & Entrepreneur">
+  <title>Other Interests | Rohan Sampath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      color: #222;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    img.profile-pic {
+      width: 220px;
+      border-radius: 12px;
+    }
+    .header-text h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      font-weight: 600;
+    }
+    .header-text p {
+      margin: 10px 0;
+      font-size: 1.3em;
+      line-height: 1.6;
+    }
+    .social-icons img {
+      width: 24px;
+      margin-right: 12px;
+    }
+    .tabs {
+      margin-top: 30px;
+      overflow-x: auto;
+    }
+    .tab-button {
+      padding: 10px 20px;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 1em;
+      cursor: pointer;
+      background: none;
+      font-weight: 500;
+      color: #555;
+    }
+    .tab-button.active {
+      border-bottom: 3px solid #6a0dad;
+      color: #6a0dad;
+    }
+    .tab-content {
+      margin-top: 20px;
+      scroll-margin-top: 100px;
+    }
+    .social-icons a[href*="linkedin"] img {
+      filter: invert(19%) sepia(87%) saturate(1596%) hue-rotate(183deg) brightness(92%) contrast(92%);
+    }
+    .social-icons a[href*="twitter"] img {
+      filter: invert(41%) sepia(98%) saturate(747%) hue-rotate(178deg) brightness(92%) contrast(89%);
+    }
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-text h1 {
+        font-size: 2.2em;
+      }
+      .header-text p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../rohan_photo.jpg" alt="Rohan Sampath" class="profile-pic">
+    <div class="header-text">
+      <h1>Rohan Sampath</h1>
+      <p>Builder of AI Products | Entrepreneur</p>
+      <p>Co-founder and CEO of <a href="https://www.copilotup.com" target="_blank">Copilot</a></p>
+      <p style="font-size: 1em; color: #555;">rohan.s94 ατ gmail.com</p>
+      <p class="social-icons">
+        <a href="https://github.com/rohan-sampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/rohansampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://twitter.com/rohan_sampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/twitter.svg" alt="Twitter"></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-button" onclick="navigateTo('/')">BIO</button>
+    <button class="tab-button" onclick="navigateTo('/projects')">PROJECTS</button>
+    <button class="tab-button active" onclick="navigateTo('/other')">OTHER</button>
+  </div>
+
+  <div id="other" class="tab-content">
+    <p><strong>🧠 Interests:</strong> My other interests include Linguistics, Psephology (Election Analysis), Cartography, Skiing, Swimming, Tennis, and Road Biking. I've done several multi-day road bike tours (SF to LA, Oregon Coast, Vancouver Island). </p>
+
+    <p>🌍 I'm a <a href="https://en.wikipedia.org/wiki/Third_culture_kid" target="_blank">Third Culture Individual</a> — I've lived in 4 countries (US, Canada, UAE, and India), and speak 4 languages (English, Hindi, Tamil, and Arabic).</p>
+  </div>
+
+  <script>
+    function navigateTo(path) {
+      window.location.href = path;
+    }
+  </script>
+
+</body>
+</html>

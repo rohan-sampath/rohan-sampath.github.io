@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    // This script handles redirects for GitHub Pages
+    (function() {
+      // Parse the URL pathname
+      const path = window.location.pathname.toLowerCase();
+      
+      // Handle specific redirects
+      if (path.includes('/projects/offline-translation')) {
+        window.location.replace('/projects/offline-translation/');
+      } else if (path.includes('/projects/mcp-elections-canada')) {
+        window.location.replace('/projects/mcp-elections-canada/');
+      } else if (path.includes('/projects')) {
+        window.location.replace('/projects/');
+      } else if (path.includes('/other')) {
+        window.location.replace('/other/');
+      } else if (path.includes('offline-translation.html')) {
+        window.location.replace('/projects/offline-translation/');
+      } else if (path.includes('mcp-elections-canada.html')) {
+        window.location.replace('/projects/mcp-elections-canada/');
+      } else if (path.includes('threefortythree-canada.html')) {
+        window.location.replace('https://threefortythree.ca/');
+      } else if (path.includes('scriptforge.html')) {
+        window.location.replace('/projects/');
+      } else {
+        window.location.replace('/');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+  <p>If you are not redirected automatically, <a href="/">click here to go to the home page</a>.</p>
+</body>
+</html>

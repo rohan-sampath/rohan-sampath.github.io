@@ -2,13 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found</title>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 { color: #6a0dad; }
+    #message { margin-bottom: 30px; }
+  </style>
   <script>
-    window.location.replace("/");
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    // This script takes the current URL and converts the path and query
+    // string into just a query string, and then redirects the browser
+    // to the new URL with only a query string and hash fragment
+
+    // Parse the URL
+    const pathSegmentsToKeep = 0; // For a repo name, use 1
+    const l = window.location;
+    const redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash;
+
+    // Handle the redirect
+    window.onload = function() {
+      const path = window.location.pathname.toLowerCase();
+      
+      // Handle specific redirects
+      if (path.includes('offline-translation.html')) {
+        window.location.replace('/projects/offline-translation/');
+      } else if (path.includes('mcp-elections-canada.html')) {
+        window.location.replace('/projects/mcp-elections-canada/');
+      } else if (path.includes('threefortythree-canada.html')) {
+        window.location.replace('https://threefortythree.ca/');
+      } else if (path.includes('scriptforge.html')) {
+        window.location.replace('/projects/');
+      } else {
+        document.getElementById('message').textContent = 'Redirecting to home page...';
+        window.location.replace('/');
+      }
+    };
   </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="/">click here</a>.</p>
+  <h1>Page Not Found</h1>
+  <div id="message">Looking for the right page...</div>
+  <p>If you are not redirected automatically, <a href="/">click here to go to the home page</a>.</p>
 </body>
 </html>

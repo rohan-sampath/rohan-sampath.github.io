@@ -132,9 +132,9 @@
   </div>
 
   <div class="tabs">
-    <button class="tab-button active" onclick="navigateTo('bio')">BIO</button>
-    <button class="tab-button" onclick="navigateTo('projects')">PROJECTS</button>
-    <button class="tab-button" onclick="navigateTo('other')">OTHER</button>
+    <button class="tab-button active" onclick="navigateTo('/')">BIO</button>
+    <button class="tab-button" onclick="navigateTo('/projects')">PROJECTS</button>
+    <button class="tab-button" onclick="navigateTo('/other')">OTHER</button>
   </div>
 
   <div id="bio" class="tab-content">
@@ -145,11 +145,12 @@
       <li>Hired and managed a team of 10 engineers</li>
       <li>Raised over $3M in venture capital funding, and led product, engineering, and go-to-market efforts</li>
     </ul>
-    <p>I've worked on several open-source projects in areas such as AI agentic software, OCR models, edge/mobile model deployment, distillation, and model evaluation. My open-source AI applications can be found <a href="#projects">here</a>.</p>
+    <p>I've worked on several open-source projects in areas such as AI agentic software, OCR models, edge/mobile model deployment, distillation, and model evaluation. My open-source AI applications can be found <a href="/projects">here</a>.</p>
     <p>I did a Master's in Computer Science at Stanford University, focused on Natural Language Processing and Understanding. I worked closely with Chris Manning and served as a teaching assistant for two of his classes — CS224N (Natural Language Processing with Deep Learning) and CS276 (Information Retrieval and Web Search).</p>
     <p>Before that, I was a consultant at McKinsey & Company, working with tech companies on innovation strategy. I also hold a B.A. in Economics and an M.S. in Management Science and Engineering, both from Stanford University.</p>
   </div>
 
+<!-- Projects section moved to /projects/index.html -->
 <div id="projects" class="tab-content" style="display:none;">
   <div class="project-card">
     <h3><a href="offline-translation.html">Offline Translation</a></h3>
@@ -163,7 +164,7 @@
   </div>
 
   <div class="project-card">
-    <h3><a href="scriptforge.html">ScriptForge: Agentic Screenwriting Assistant for Film & TV</a></h3>
+    <h3><a href="/projects">ScriptForge: Agentic Screenwriting Assistant for Film & TV</a></h3>
     <p>A writer assistant that lets you co-author screenplays in multiple genres and formats with fine-grained control over collaboration. Uses a multi-agent architecture with a supervisor agent and multiple specialized worker agents. Built using LangGraph (soon moving to OpenAI Agents SDK), it orchestrates a multi-agent system where a human and LLM "Writer Agent" alternate turns in drafting, rewriting, and structuring scenes.</p>
     <p>This approach preserves authorial voice and creative direction while drastically reducing the time to a complete screenplay. Includes tooling for test-time LLM selection, turn management protocols, and structured prompt libraries tailored for screenwriting.</p>
     <p><strong>Key differentiator:</strong> Configurable control over how often the LLM "Writer Agent" takes turns vs. the human writer — useful for both novice and expert screenwriters.</p>
@@ -191,11 +192,11 @@
 
 
   <div class="project-card">
-    <h3><a href="threefortythree-canada.html">ThreeFortyThree Canada: Canadian Election Projections and Modelling</a></h3>
-    <p>A seat-by-seat forecasting platform for Canadian federal elections. It combines regional and national polling with historical swing data, incumbent effects, demographic data, and multivariate modeling to simulate likely outcomes across all 343 electoral districts (hence the name). The projection engine uses Monte Carlo simulations to incorporate uncertainty and generate probabilistic seat counts and riding-level forecasts.</p>
+    <h3><a href="https://threefortythree.ca/" target="_blank">ThreeFortyThree Canada: Canadian Election Projections and Modelling</a></h3>
+    <p>A seat-by-seat forecasting platform for Canadian federal elections. It was built in preparation for the 2025 Canadian federal election, held in April 2025. It combines regional and national polling with historical swing data, incumbent effects, demographic data, and multivariate modeling to simulate likely outcomes across all 343 electoral districts (hence the name). The projection engine uses Monte Carlo simulations to incorporate uncertainty and generate probabilistic seat counts and riding-level forecasts.</p>
     <p>Users can interactively simulate elections by adjusting party vote shares and observing how seat-by-seat outcomes shift in response.</p>
     <p><strong>Key features:</strong> Uses a polling aggregation pipeline, combines multivariate distributions and Monte Carlo simulation to model multi-party dynamics. <a href="https://threefortythree.ca/about" target="_blank">Read full methodology here</a></p>
-    <p class="tags">Keywords: React, Node.js, Python backend for Chat (<a href="https://threefortythree.ca/chat" target="_blank">link</a>), Multivariate distributions, Monte Carlo engine, Polling aggregation pipeline</p>
+    <p class="tags">Keywords: React, Node.js, Python backend for Chat (see below, <a href="https://threefortythree.ca/chat" target="_blank">link</a>), Multivariate distributions, Monte Carlo engine, Polling aggregation pipeline</p>
     <p>
       <a href="https://threefortythree.ca/" target="_blank">
         <img class="icon" src="/assets/world-www.svg" alt="Website" style="width: 20px; height: 20px;">
@@ -242,7 +243,8 @@
 
 </div>
   
-  <div id="other" class="tab-content" style="display:none;">
+  <!-- Other section moved to /other/index.html -->
+<div id="other" class="tab-content" style="display:none;">
     <p><strong>🧠 Interests:</strong> My other interests include Linguistics, Psephology (Election Analysis), Cartography, Skiing, Swimming, Tennis, and Road Biking. I've done several multi-day road bike tours (SF to LA, Oregon Coast, Vancouver Island). </p>
 
     <p>I created <a href="https://threefortythree.ca" target="_blank">ThreeFortyThree Canada</a>, a seat-by-seat election forecasting platform for Canadian federal elections. It uses multivariate modeling and Monte Carlo simulation to translate national and regional polling into seat-level projections across all 343 electoral districts in Canada. I also created <a href="https://github.com/rohan-sampath/india-constituencies-game" target="_blank">Guess the Constituency</a> - a game for the Indian General Election, 2024.</p>
@@ -253,29 +255,12 @@
   </div>
 
   <script>
-    function navigateTo(tabName) {
-      const tabs = document.getElementsByClassName('tab-content');
-      for (const tab of tabs) {
-        tab.style.display = 'none';
-      }
-      const target = document.getElementById(tabName);
-      target.style.display = 'block';
-      target.scrollIntoView({ behavior: 'smooth' });
-
-      const buttons = document.getElementsByClassName('tab-button');
-      for (const btn of buttons) {
-        btn.classList.remove('active');
-        if (btn.innerText.toLowerCase() === tabName) {
-          btn.classList.add('active');
-        }
-      }
-
-      history.pushState(null, '', '/' + tabName);
+    function navigateTo(path) {
+      window.location.href = path;
     }
 
-    // Initial route check
-    const path = window.location.pathname.replace('/', '') || 'bio';
-    navigateTo(path);
+    // No need for initial route check in the new structure
+    // This page is now the home/bio page
   </script>
 
 </body>

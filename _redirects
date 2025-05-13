@@ -1,0 +1,14 @@
+# Redirects for GitHub Pages
+/offline-translation.html /projects/offline-translation/ 301
+/mcp-elections-canada.html /projects/mcp-elections-canada/ 301
+/threefortythree-canada.html https://threefortythree.ca/ 301
+/scriptforge.html /projects/ 301
+
+# Handle folder paths
+/projects /projects/ 301
+/other /other/ 301
+/projects/offline-translation /projects/offline-translation/ 301
+/projects/mcp-elections-canada /projects/mcp-elections-canada/ 301
+
+# SPA fallback
+/* /index.html 200

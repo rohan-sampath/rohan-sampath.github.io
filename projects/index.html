@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rohan Sampath | AI Product Builder & Entrepreneur">
+  <title>Projects | Rohan Sampath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      color: #222;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    img.profile-pic {
+      width: 220px;
+      border-radius: 12px;
+    }
+    .header-text h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      font-weight: 600;
+    }
+    .header-text p {
+      margin: 10px 0;
+      font-size: 1.3em;
+      line-height: 1.6;
+    }
+    .social-icons img {
+      width: 24px;
+      margin-right: 12px;
+    }
+    .tabs {
+      margin-top: 30px;
+      overflow-x: auto;
+    }
+    .tab-button {
+      padding: 10px 20px;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 1em;
+      cursor: pointer;
+      background: none;
+      font-weight: 500;
+      color: #555;
+    }
+    .tab-button.active {
+      border-bottom: 3px solid #6a0dad;
+      color: #6a0dad;
+    }
+    .tab-content {
+      margin-top: 20px;
+      scroll-margin-top: 100px;
+    }
+    .social-icons a[href*="linkedin"] img {
+      filter: invert(19%) sepia(87%) saturate(1596%) hue-rotate(183deg) brightness(92%) contrast(92%);
+    }
+    .social-icons a[href*="twitter"] img {
+      filter: invert(41%) sepia(98%) saturate(747%) hue-rotate(178deg) brightness(92%) contrast(89%);
+    }
+    .project-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+    }
+    .project-card h3 {
+      margin-top: 0;
+      color: #6a0dad;
+    }
+    .in-progress .project-card h3 {
+      color: #555;
+      font-weight: normal;
+    }
+    .project-card p:not(.tags) {
+      line-height: 1.3;
+      text-align: justify;
+    }
+    .project-card .tags {
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 8px;
+    }
+    .project-card a {
+      color: #6a0dad;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-text h1 {
+        font-size: 2.2em;
+      }
+      .header-text p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="../rohan_photo.jpg" alt="Rohan Sampath" class="profile-pic">
+    <div class="header-text">
+      <h1>Rohan Sampath</h1>
+      <p>Builder of AI Products | Entrepreneur</p>
+      <p>Co-founder and CEO of <a href="https://www.copilotup.com" target="_blank">Copilot</a></p>
+      <p style="font-size: 1em; color: #555;">rohan.s94 ατ gmail.com</p>
+      <p class="social-icons">
+        <a href="https://github.com/rohan-sampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/rohansampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://twitter.com/rohan_sampath" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/twitter.svg" alt="Twitter"></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-button" onclick="navigateTo('/')">BIO</button>
+    <button class="tab-button active" onclick="navigateTo('/projects')">PROJECTS</button>
+    <button class="tab-button" onclick="navigateTo('/other')">OTHER</button>
+  </div>
+
+  <div id="projects" class="tab-content">
+    <div class="project-card">
+      <h3><a href="/projects/offline-translation">Offline Translation</a></h3>
+      <p>A mobile app that performs offline image-to-text translation entirely using local models. It explores CoreML-based pipelines vs. multimodal architectures, built in Swift for iOS. <strong>Key result:</strong> Using a small, locally deployed multimodal model (i) improves text recognition and translation quality, and (ii) enhances support for low-resource languages, outperforming the Apple Translate app.</p>
+      <p class="tags">Keywords: CoreML, Apple Vision, Apple Language, Apple Translation, OCR, Swift</p>
+      <p>
+        <a href="https://github.com/rohan-sampath/OfflineTranslation" target="_blank">
+          <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px;">
+        </a>
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3><a href="/projects">ScriptForge: Agentic Screenwriting Assistant for Film & TV</a></h3>
+      <p>A writer assistant that lets you co-author screenplays in multiple genres and formats with fine-grained control over collaboration. Uses a multi-agent architecture with a supervisor agent and multiple specialized worker agents. Built using LangGraph (soon moving to OpenAI Agents SDK), it orchestrates a multi-agent system where a human and LLM "Writer Agent" alternate turns in drafting, rewriting, and structuring scenes.</p>
+      <p>This approach preserves authorial voice and creative direction while drastically reducing the time to a complete screenplay. Includes tooling for test-time LLM selection, turn management protocols, and structured prompt libraries tailored for screenwriting.</p>
+      <p><strong>Key differentiator:</strong> Configurable control over how often the LLM "Writer Agent" takes turns vs. the human writer — useful for both novice and expert screenwriters.</p>
+      <p class="tags">Keywords: LLM agents, LangGraph, LangSmith (observability), Model Context Protocol, multi-agent orchestration, OpenAI Agents SDK</p>
+      <p>
+        <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px; opacity: 0.4;">
+        <span style="font-size: 0.8em; color: #777;">(Repo currently private due to active commercial discussions.)</span>
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3><a href="https://huggingface.co/spaces/rohansampath/H2H-eval-comparator" target="_blank">Head-to-Head Model Evaluation Harness</a></h3>
+      <p>A lightweight head-to-head evaluation harness that lets you compare two LLMs—either off-the-shelf or fine-tuned—on a custom dataset. Designed for domain-specific testing (e.g., legal, finance, enterprise), and with curated test cases from non-technical users in mind. For example, a lawyer or financial analyst can define a small evaluation suite and compare model performance without writing code.</p>
+      <p>Built using <a href="https://github.com/vllm-project/vllm" target="_blank">vLLM</a> - a high-throughput and memory-efficient inference engine for LLMs.</p>
+      <p><strong>Key differentiator:</strong> Enables evaluation on custom datasets, not just public benchmarks — ideal for quick comparison and selection of models for specific domains or use cases.</p>
+      <p class="tags">Keywords: Hugging Face, vLLM, model evaluation, custom datasets, eval harness infrastructure</p>
+      <p>
+        <a href="https://huggingface.co/spaces/rohansampath/H2H-eval-comparator" target="_blank">
+          <img class="icon" src="../assets/huggingface-color.png" alt="Hugging Face" style="width: 20px; height: 20px;">
+        </a>
+        <span style="font-size: 0.8em; color: #777; margin-left: 5px;">(Hugging Face Space - demo and proof of concept on a single A100 GPU.)</span>
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3><a href="https://threefortythree.ca/" target="_blank">ThreeFortyThree Canada: Canadian Election Projections and Modelling</a></h3>
+      <p>A seat-by-seat forecasting platform for Canadian federal elections. It was built in preparation for the 2025 Canadian federal election, held in April 2025. It combines regional and national polling with historical swing data, incumbent effects, demographic data, and multivariate modeling to simulate likely outcomes across all 343 electoral districts (hence the name). The projection engine uses Monte Carlo simulations to incorporate uncertainty and generate probabilistic seat counts and riding-level forecasts.</p>
+      <p>Users can interactively simulate elections by adjusting party vote shares and observing how seat-by-seat outcomes shift in response.</p>
+      <p><strong>Key features:</strong> Uses a polling aggregation pipeline, combines multivariate distributions and Monte Carlo simulation to model multi-party dynamics. <a href="https://threefortythree.ca/about" target="_blank">Read full methodology here</a></p>
+      <p class="tags">Keywords: React, Node.js, Python backend for Chat (see below, <a href="https://threefortythree.ca/chat" target="_blank">link</a>), Multivariate distributions, Monte Carlo engine, Polling aggregation pipeline</p>
+      <p>
+        <a href="https://threefortythree.ca/" target="_blank">
+          <img class="icon" src="../assets/world-www.svg" alt="Website" style="width: 20px; height: 20px;">
+        </a>
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3><a href="/projects/mcp-elections-canada">MCP Elections Canada: Agentic Election Analysis</a></h3>
+      <p>An agentic system that answers questions about Canadian elections, polling, and political data. It uses Model Context Protocol (MCP) to connect a LLM with a suite of specialized tools for retrieving and analyzing Canadian election data. The system can access polling data, historical election results, and demographic information to provide nuanced analyses of electoral trends and forecasts.</p>
+      <p>Built as an experiment in agentic systems with specialized knowledge domains, it demonstrates how LLMs can be augmented with domain-specific tools to provide expert-level analysis in niche areas.</p>
+      <p><strong>Key features:</strong> Uses MCP to connect a LLM with specialized tools for Canadian election data analysis, providing nuanced responses to complex political questions.</p>
+      <p class="tags">Keywords: Model Context Protocol (MCP), LLM agents, Canadian elections, polling analysis, demographic analysis</p>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(path) {
+      window.location.href = path;
+    }
+  </script>
+
+</body>
+</html>

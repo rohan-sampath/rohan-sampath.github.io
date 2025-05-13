@@ -1,3 +1,3 @@
 # rohan-sampath.github.io
-Personal Webpage
-Available at rohansampath.com
+
+Personal website available at [https://rohansampath.com/](https://rohansampath.com/)

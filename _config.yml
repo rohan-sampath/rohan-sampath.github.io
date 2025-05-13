@@ -2,3 +2,15 @@ title: Rohan Sampath
 description: Personal Website
 theme: minima
 markdown: kramdown
+
+# GitHub Pages settings
+permalink: pretty
+include:
+  - _redirects
+
+# Handle 404 with custom page
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
