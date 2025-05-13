@@ -15,6 +15,14 @@
       margin: 40px auto;
       padding: 0 20px;
     }
+    .disabled-icon {
+      opacity: 0.7;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .app-store-icon {
+      filter: invert(41%) sepia(98%) saturate(747%) hue-rotate(178deg) brightness(92%) contrast(89%);
+    }
     .header {
       display: flex;
       align-items: center;
@@ -138,63 +146,95 @@
   </div>
 
   <div id="projects" class="tab-content">
+  <div class="project-card">
+    <h3><a href="/projects/offline-translation">Offline Translation</a></h3>
+    <p>A mobile app that performs offline image-to-text translation entirely using local models. It explores CoreML-based pipelines vs. multimodal architectures, built in Swift for iOS. <strong>Key result:</strong> Using a small, locally deployed multimodal model (i) improves text recognition and translation quality, and (ii) enhances support for low-resource languages, outperforming the Apple Translate app.</p>
+    <p class="tags">Keywords: CoreML, Apple Vision, Apple Language, Apple Translation, OCR, Swift</p>
+    <p>
+      <a href="https://github.com/rohan-sampath/OfflineTranslation" target="_blank">
+        <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px;">
+      </a>
+      <img class="icon disabled-icon app-store-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/appstore.svg" alt="App Store" style="width: 20px; height: 20px;">
+      <span style="font-size: 0.8em; color: #777; margin-left: 5px;">(currently under review at the App Store)</span>
+    </p>
+  </div>
+
+  <div class="project-card">
+    <h3><a href="/projects">ScriptForge: Agentic Screenwriting Assistant for Film & TV</a></h3>
+    <p>A writer assistant that lets you co-author screenplays in multiple genres and formats with fine-grained control over collaboration. Uses a multi-agent architecture with a supervisor agent and multiple specialized worker agents. Built using LangGraph (soon moving to OpenAI Agents SDK), it orchestrates a multi-agent system where a human and LLM "Writer Agent" alternate turns in drafting, rewriting, and structuring scenes.</p>
+    <p>This approach preserves authorial voice and creative direction while drastically reducing the time to a complete screenplay. Includes tooling for test-time LLM selection, turn management protocols, and structured prompt libraries tailored for screenwriting.</p>
+    <p><strong>Key differentiator:</strong> Configurable control over how often the LLM "Writer Agent" takes turns vs. the human writer — useful for both novice and expert screenwriters.</p>
+    <p class="tags">Keywords: LLM agents, LangGraph, LangSmith (observability), Model Context Protocol, multi-agent orchestration, OpenAI Agents SDK</p>
+    <p>
+      <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px; opacity: 0.4;">
+      <span style="font-size: 0.8em; color: #777;">(Repo currently private due to active commercial discussions.)</span>
+    </p>
+  </div>
+
+  <div class="project-card">
+    <h3><a href="https://huggingface.co/spaces/rohansampath/H2H-eval-comparator" target="_blank">Head-to-Head Model Evaluation Harness</a></h3>
+    <p>A lightweight head-to-head evaluation harness that lets you compare two LLMs—either off-the-shelf or fine-tuned—on a custom dataset. Designed for domain-specific testing (e.g., legal, finance, enterprise), and with curated test cases from non-technical users in mind. For example, a lawyer or financial analyst can define a small evaluation suite and compare model performance without writing code.</p>
+    <p>Built using <a href="https://github.com/vllm-project/vllm" target="_blank">vLLM</a> - a high-throughput and memory-efficient inference engine for LLMs.</p>
+    <p><strong>Key differentiator:</strong> Enables evaluation on custom datasets, not just public benchmarks — ideal for quick comparison and selection of models for specific domains or use cases.</p>
+    <p class="tags">Keywords: Hugging Face, vLLM, model evaluation, custom datasets, eval harness infrastructure</p>
+    <p>
+      <a href="https://huggingface.co/spaces/rohansampath/H2H-eval-comparator" target="_blank">
+        <img class="icon" src="../assets/huggingface-color.png" alt="Hugging Face" style="width: 20px; height: 20px;">
+      </a>
+      <span style="font-size: 0.8em; color: #777; margin-left: 5px;">(Hugging Face Space - demo and proof of concept on a single A100 GPU.)</span>
+    </p>
+  </div>
+
+
+
+  <div class="project-card">
+    <h3><a href="https://threefortythree.ca/" target="_blank">ThreeFortyThree Canada: Canadian Election Projections and Modelling</a></h3>
+    <p>A seat-by-seat forecasting platform for Canadian federal elections. It was built in preparation for the 2025 Canadian federal election, held in April 2025. It combines regional and national polling with historical swing data, incumbent effects, demographic data, and multivariate modeling to simulate likely outcomes across all 343 electoral districts (hence the name). The projection engine uses Monte Carlo simulations to incorporate uncertainty and generate probabilistic seat counts and riding-level forecasts.</p>
+    <p>Users can interactively simulate elections by adjusting party vote shares and observing how seat-by-seat outcomes shift in response.</p>
+    <p><strong>Key features:</strong> Uses a polling aggregation pipeline, combines multivariate distributions and Monte Carlo simulation to model multi-party dynamics. <a href="https://threefortythree.ca/about" target="_blank">Read full methodology here</a></p>
+    <p class="tags">Keywords: React, Node.js, Python backend for Chat (see below, <a href="https://threefortythree.ca/chat" target="_blank">link</a>), Multivariate distributions, Monte Carlo engine, Polling aggregation pipeline</p>
+    <p>
+      <a href="https://threefortythree.ca/" target="_blank">
+        <img class="icon" src="../assets/world-www.svg" alt="Website" style="width: 20px; height: 20px;">
+      </a>
+      <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px; opacity: 0.4; margin-left: 10px;">
+    </p>
+  </div>
+
+  <div class="project-card">
+    <h3><a href="/projects/mcp-elections-canada">Model Context Protocol (MCP) Server and Client: Elections Canada</a></h3>
+    <p>A Model Context Protocol server that brings Canadian elections data into LLM tools. Specifically tested for use with Claude Desktop. In addition, a Model Context Protocol Client with a multi-agent architecture that is used at threefortythree.ca/chat. <strong>Key feature:</strong> Fine-grained querying of all electoral and polling data.</p>
+    <p class="tags">Keywords: MCP, Model Context Protocol, LLM tools, Canadian elections, Claude Desktop, multi-agent architecture</p>
+    <p>
+      <span>Server: </span>
+      <a href="https://github.com/ThreeFortyThree-Canada/elections-canada-mcp-server" target="_blank">
+        <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px;">
+      </a>
+      <a href="https://pypi.org/project/elections-canada-mcp-server/" target="_blank" style="margin-left: 5px; font-size: 0.9em;">PyPI</a>
+      <span style="margin-left: 10px;">Client: </span>
+      <a href="https://threefortythree.ca/chat" target="_blank">
+        <img class="icon" src="../assets/world-www.svg" alt="Web" style="width: 20px; height: 20px; margin-left: 5px;">
+      </a>
+    </p>
+  </div>
+
+  <h3 style="margin-top: 40px; padding-bottom: 10px; border-bottom: 1px solid #ddd;">In Progress</h3>
+  
+  <div class="in-progress">
     <div class="project-card">
-      <h3><a href="/projects/offline-translation">Offline Translation</a></h3>
-      <p>A mobile app that performs offline image-to-text translation entirely using local models. It explores CoreML-based pipelines vs. multimodal architectures, built in Swift for iOS. <strong>Key result:</strong> Using a small, locally deployed multimodal model (i) improves text recognition and translation quality, and (ii) enhances support for low-resource languages, outperforming the Apple Translate app.</p>
-      <p class="tags">Keywords: CoreML, Apple Vision, Apple Language, Apple Translation, OCR, Swift</p>
-      <p>
-        <a href="https://github.com/rohan-sampath/OfflineTranslation" target="_blank">
-          <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px;">
-        </a>
-      </p>
+      <h3>Inference Time & Cost Estimator</h3>
+      <p>A calculator-style tool that estimates the latency and cost of running various ML models on different hardware. Input model size, architecture type, batch size, and hardware profile to get real-time insights on cost-performance tradeoffs.</p>
+      <p class="tags">Keywords: latency, inference cost, model architecture, hardware benchmarking, deployment planning</p>
+
     </div>
 
     <div class="project-card">
-      <h3><a href="/projects">ScriptForge: Agentic Screenwriting Assistant for Film & TV</a></h3>
-      <p>A writer assistant that lets you co-author screenplays in multiple genres and formats with fine-grained control over collaboration. Uses a multi-agent architecture with a supervisor agent and multiple specialized worker agents. Built using LangGraph (soon moving to OpenAI Agents SDK), it orchestrates a multi-agent system where a human and LLM "Writer Agent" alternate turns in drafting, rewriting, and structuring scenes.</p>
-      <p>This approach preserves authorial voice and creative direction while drastically reducing the time to a complete screenplay. Includes tooling for test-time LLM selection, turn management protocols, and structured prompt libraries tailored for screenwriting.</p>
-      <p><strong>Key differentiator:</strong> Configurable control over how often the LLM "Writer Agent" takes turns vs. the human writer — useful for both novice and expert screenwriters.</p>
-      <p class="tags">Keywords: LLM agents, LangGraph, LangSmith (observability), Model Context Protocol, multi-agent orchestration, OpenAI Agents SDK</p>
-      <p>
-        <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px; opacity: 0.4;">
-        <span style="font-size: 0.8em; color: #777;">(Repo currently private due to active commercial discussions.)</span>
-      </p>
-    </div>
+      <h3>DistillKit: Knowledge Distillation Library</h3>
+      <p>A plug-and-play Python library to distill knowledge from larger teacher models into smaller, deployable student models.</p>
+      <p class="tags">Keywords: knowledge distillation, teacher and student models</p>
 
-    <div class="project-card">
-      <h3><a href="https://huggingface.co/spaces/rohansampath/H2H-eval-comparator" target="_blank">Head-to-Head Model Evaluation Harness</a></h3>
-      <p>A lightweight head-to-head evaluation harness that lets you compare two LLMs—either off-the-shelf or fine-tuned—on a custom dataset. Designed for domain-specific testing (e.g., legal, finance, enterprise), and with curated test cases from non-technical users in mind. For example, a lawyer or financial analyst can define a small evaluation suite and compare model performance without writing code.</p>
-      <p>Built using <a href="https://github.com/vllm-project/vllm" target="_blank">vLLM</a> - a high-throughput and memory-efficient inference engine for LLMs.</p>
-      <p><strong>Key differentiator:</strong> Enables evaluation on custom datasets, not just public benchmarks — ideal for quick comparison and selection of models for specific domains or use cases.</p>
-      <p class="tags">Keywords: Hugging Face, vLLM, model evaluation, custom datasets, eval harness infrastructure</p>
-      <p>
-        <a href="https://huggingface.co/spaces/rohansampath/H2H-eval-comparator" target="_blank">
-          <img class="icon" src="../assets/huggingface-color.png" alt="Hugging Face" style="width: 20px; height: 20px;">
-        </a>
-        <span style="font-size: 0.8em; color: #777; margin-left: 5px;">(Hugging Face Space - demo and proof of concept on a single A100 GPU.)</span>
-      </p>
     </div>
-
-    <div class="project-card">
-      <h3><a href="https://threefortythree.ca/" target="_blank">ThreeFortyThree Canada: Canadian Election Projections and Modelling</a></h3>
-      <p>A seat-by-seat forecasting platform for Canadian federal elections. It was built in preparation for the 2025 Canadian federal election, held in April 2025. It combines regional and national polling with historical swing data, incumbent effects, demographic data, and multivariate modeling to simulate likely outcomes across all 343 electoral districts (hence the name). The projection engine uses Monte Carlo simulations to incorporate uncertainty and generate probabilistic seat counts and riding-level forecasts.</p>
-      <p>Users can interactively simulate elections by adjusting party vote shares and observing how seat-by-seat outcomes shift in response.</p>
-      <p><strong>Key features:</strong> Uses a polling aggregation pipeline, combines multivariate distributions and Monte Carlo simulation to model multi-party dynamics. <a href="https://threefortythree.ca/about" target="_blank">Read full methodology here</a></p>
-      <p class="tags">Keywords: React, Node.js, Python backend for Chat (see below, <a href="https://threefortythree.ca/chat" target="_blank">link</a>), Multivariate distributions, Monte Carlo engine, Polling aggregation pipeline</p>
-      <p>
-        <a href="https://threefortythree.ca/" target="_blank">
-          <img class="icon" src="../assets/world-www.svg" alt="Website" style="width: 20px; height: 20px;">
-        </a>
-      </p>
-    </div>
-
-    <div class="project-card">
-      <h3><a href="/projects/mcp-elections-canada">MCP Elections Canada: Agentic Election Analysis</a></h3>
-      <p>An agentic system that answers questions about Canadian elections, polling, and political data. It uses Model Context Protocol (MCP) to connect a LLM with a suite of specialized tools for retrieving and analyzing Canadian election data. The system can access polling data, historical election results, and demographic information to provide nuanced analyses of electoral trends and forecasts.</p>
-      <p>Built as an experiment in agentic systems with specialized knowledge domains, it demonstrates how LLMs can be augmented with domain-specific tools to provide expert-level analysis in niche areas.</p>
-      <p><strong>Key features:</strong> Uses MCP to connect a LLM with specialized tools for Canadian election data analysis, providing nuanced responses to complex political questions.</p>
-      <p class="tags">Keywords: Model Context Protocol (MCP), LLM agents, Canadian elections, polling analysis, demographic analysis</p>
-    </div>
+  </div>
   </div>
 
   <script>

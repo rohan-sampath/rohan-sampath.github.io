@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offline Translation | Rohan Sampath</title>
+  <title>Offline Translation (Image Recognition and Translation) | Rohan Sampath</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,6 +12,39 @@
       margin: 40px auto;
       padding: 0 20px;
       color: #222;
+    }
+    .breadcrumb {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .breadcrumb a {
+      color: #6a0dad;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .arrow {
+      border: solid #6a0dad;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      margin-right: 8px;
+    }
+    .left {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
+    .disabled-icon {
+      opacity: 0.7;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .app-store-icon {
+      filter: invert(41%) sepia(98%) saturate(747%) hue-rotate(178deg) brightness(92%) contrast(89%);
     }
     h1, h2, h3 {
       color: #6a0dad;
@@ -69,22 +102,21 @@
   </style>
 </head>
 <body>
-  <div class="nav-tabs">
-    <button class="nav-button" onclick="navigateTo('/')">BIO</button>
-    <button class="nav-button active" onclick="navigateTo('/projects')">PROJECTS</button>
-    <button class="nav-button" onclick="navigateTo('/other')">OTHER</button>
+  <div class="breadcrumb">
+    <a href="/projects"><i class="arrow left"></i> Back to Projects</a>
   </div>
 
-  <h1>Offline Translation</h1>
+  <h1>Offline Translation (Image Recognition and Translation)</h1>
   <p>
     <a href="https://github.com/rohan-sampath/OfflineTranslation" target="_blank">
       <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 24px; height: 24px;">
     </a>
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/appstore.svg" alt="App Store" class="disabled-icon app-store-icon" style="width: 24px; height: 24px;">
+    <span style="font-size: 0.9em; color: #777;">(currently under review at the App Store)</span>
   </p>
 
   <div class="tabs">
     <button class="tab-button active" onclick="switchTab('overview')">Overview</button>
-    <button class="tab-button" onclick="switchTab('technical-goals')">Technical Goals</button>
     <button class="tab-button" onclick="switchTab('architecture')">Architecture</button>
     <button class="tab-button" onclick="switchTab('design-doc')">Design Doc</button>
     <button class="tab-button" onclick="switchTab('evaluation')">Evaluation</button>
@@ -93,36 +125,103 @@
 
   <div id="overview" class="tab-content active">
     <h2>Description</h2>
-    <p>Offline Translation is an iOS app that translates text from photos without using cloud services. It enables users—especially travelers or people in low-connectivity areas—to take or upload a picture, automatically detect the language, and receive a translation in their chosen language.</p>
+    <p>Offline Translation is a fully on-device iOS app that translates text embedded in photos using Apple-native models as well as open-source models for OCR and multilingual machine translation. The app supports multiple pipelines—ranging from modular OCR + translation systems to end-to-end vision-language models—to benchmark translation quality across both high-resource and low-resource languages. All translation and inference happens on-device, without relying on cloud services or internet access.</p>
+
+    <hr style="border: none; height: 1px; background-color: #ddd; margin: 20px 0;">
 
     <h2>Use Case</h2>
-    <p>Ideal for travelers who need to translate road signs, menus, or business signs in areas with poor or no internet connectivity.</p>
+    <p>This app is built for travelers or users in low-connectivity environments who need fast and private translation of real-world text, such as road signs, menus, forms, or instructions. It functions offline, offering immediate utility in airports, remote regions, or while roaming internationally. The app also serves as a technical reference implementation for mobile AI deployment.</p>
+
+    <hr style="border: none; height: 1px; background-color: #ddd; margin: 20px 0;">
 
     <h2>Market Comparison</h2>
-    <p>Apple and Google both offer offline translation apps. These rely on downloading "language kits" for each supported language pair. Offline Translation evaluates whether performance can be improved with alternative local models or architectures.</p>
+    <p>Apple and Google both offer offline translation apps for IoS that rely on downloadable language kits. However, their OCR and translation components are not customizable, and language coverage is limited. Offline Translation investigates whether an open-source pipeline can surpass their translation quality and/or coverage.</p>
+
+    <hr style="border: none; height: 1px; background-color: #ddd; margin: 20px 0;">
+
+    <h2>Key Research Questions</h2>
+    <ul>
+      <li><strong>Can open-source pipelines outperform Apple Translate?</strong><br>
+      For languages already supported by Apple, can a custom pipeline—using better OCR or translation models—offer improved accuracy</li>
+      <li><strong>Can we support languages that Apple does not?</strong><br>
+      Apple's OCR does not support scripts such as Tamil. Can other models provide working translation pipelines for these under-served languages?</li>
+    </ul>
+
+    <hr style="border: none; height: 1px; background-color: #ddd; margin: 20px 0;">
 
     <h2>Commercial Feasibility</h2>
-    <p>1/5 – This app is not commercially competitive with Apple/Google offerings and is primarily built for technical exploration.</p>
-  </div>
+    <p>1/5 – This app is not intended as a commercial product. Apple and Google's first-party distribution advantages make competition impractical. Instead, Offline Translation is a research vehicle to explore the performance and deployment limits of modern multilingual models on mobile devices.</p>
 
-  <div id="technical-goals" class="tab-content">
+    <hr style="border: none; height: 1px; background-color: #ddd; margin: 20px 0;">
+
     <h2>Technical Goals</h2>
     <ul>
-      <li>Deploy small local models to iOS devices</li>
-      <li>Use Apple's <code>CoreML</code>, <code>Vision</code>, <code>Language</code>, and <code>Translation</code> frameworks</li>
-      <li>Practice Swift development and mobile deployment</li>
-      <li>Compare modular vs. end-to-end translation pipelines</li>
+      <li><strong>Baseline:</strong> Reproduce the functionality of Apple's native Translate app using only system-provided frameworks (Core ML, Vision, Natural Language, and Translate APIs).</li>
+      <li><strong>Augmentation:</strong> Improve OCR and translation quality by integrating fallback local models—such as Google MLKit for OCR and Meta's M2M-100 (418M) for translation—when Apple's stack fails or lacks language support.</li>
+      <li><strong>Exploration:</strong> Investigate the viability of running compact vision-language models (e.g., MiniGPT-style) that perform image-to-translation in a single step.</li>
+      <li><strong>iOS Development:</strong> Implement the app entirely in Swift, deepening familiarity with Apple's mobile SDKs, including model integration and on-device inference.</li>
+      <li><strong>Local Model Deployment:</strong> Explore the practical constraints of edge deployment—converting models (e.g., via <code>coremltools</code> or ONNX), managing memory footprint, tuning latency, and leveraging Apple hardware accelerators like the Neural Engine (ANE).</li>
     </ul>
   </div>
 
   <div id="architecture" class="tab-content">
     <h2>Architectures Compared</h2>
-    <p>The app will be developed in three versions with the same UI:</p>
+    <p>The app is implemented in three interchangeable pipelines, all with the same UI:</p>
     <ol>
-      <li><strong>Apple-native pipeline</strong>: CoreML OCR, language detection, and translation APIs.</li>
-      <li><strong>Hybrid pipeline</strong>: CoreML + third-party local models (e.g., MLKit) to enhance each step.</li>
-      <li><strong>End-to-end vision-language model</strong>: A single on-device model to go directly from image to translation.</li>
+      <li><strong>Apple-native pipeline</strong><br>
+      A baseline using Apple's own APIs for OCR (Vision), language detection (Natural Language), and translation (Translate). This pipeline serves as the control group to benchmark against.</li>
+      <li><strong>Hybrid pipeline</strong><br>
+      Primarily uses Apple frameworks, but selectively falls back to third-party local models in failure cases. For example, if Apple Vision fails to detect text or the language is unsupported, the app invokes Google MLKit for OCR and a local copy of Meta's M2M-100 (418M) for multilingual translation.</li>
+      <li><strong>End-to-end vision-language model</strong><br>
+      An experimental pipeline that uses a single compact vision-language model (e.g., MiniGPT-style) to go directly from an image to a translated string, bypassing modular components. Used to explore next-generation model architectures.</li>
     </ol>
+
+    <hr style="border: none; height: 1px; background-color: #ddd; margin: 20px 0;">
+
+    <h2>Choice of Models</h2>
+    <p>Each pipeline uses models selected for their runtime performance, license compatibility, and support for low-resource languages:</p>
+    <ul>
+      <li><strong>Apple-native pipeline:</strong>
+        <ul>
+          <li>OCR: VNRecognizeTextRequest (Vision)</li>
+          <li>Language Detection: NLLanguageRecognizer</li>
+          <li>Translation: Apple Translate API</li>
+        </ul>
+      </li>
+      <li><strong>Hybrid pipeline:</strong>
+        <ul>
+          <li>OCR: Primary – Apple Vision; Fallback – Google MLKit (for multilingual printed text)</li>
+          <li>Language Detection: Primary – Apple Natural Language; Fallback – FastText (converted to CoreML for efficient edge inference)</li>
+          <li>Translation: Primary – Apple Translate; Fallback – Meta M2M-100 (418M), running via ONNX or Core ML with int8 quantization for near real-time performance</li>
+        </ul>
+      </li>
+      <li><strong>End-to-end vision-language model:</strong>
+        <ul>
+          <li>Model: A compact, quantized variant of a MiniGPT-style model (under 3B parameters)</li>
+          <li>Functionality: Direct image-to-translation inference; slower but used to evaluate unified multimodal workflows</li>
+        </ul>
+      </li>
+    </ul>
+
+    <hr style="border: none; height: 1px; background-color: #ddd; margin: 20px 0;">
+
+    <h2>Model Choice Tradeoffs</h2>
+    <p>This project considered several open-source alternatives before selecting the final models for each component. The selection was based on technical feasibility, mobile optimization potential, and ability to support low-resource languages:</p>
+    <ul>
+      <li><strong>M2M-100 (418M)</strong> was selected for fallback translation in the hybrid pipeline due to its:
+        <ul>
+          <li>Direct many-to-many translation across 100 languages (no pivoting through English)</li>
+          <li>Strong performance on both high- and mid-resource language pairs</li>
+          <li>MIT license (suitable for commercial use)</li>
+          <li>Feasibility for real-time execution with quantization (under 1 GB memory footprint)</li>
+        </ul>
+      </li>
+      <li><strong>NLLB-200 (600M)</strong> was evaluated for translation but ruled out for production use due to its non-commercial license (CC-BY-NC 4.0) and larger memory footprint (~1.3–2.5 GB). It remains a useful benchmark for research purposes.</li>
+      <li><strong>MarianMT and OPUS-MT</strong> models were also considered for translation. While lighter in size, they often underperform M2M-100.</li>
+      <li><strong>Tesseract OCR and PaddleOCR</strong> were reviewed as alternatives to Apple Vision and MLKit. However, they were deprioritized due to lower mobile inference performance and less seamless integration with iOS. PaddleOCR remains under consideration for future low-resource script support.</li>
+      <li><strong>MiniGPT-4, BLIP-2</strong>, and other open multimodal models were explored for the end-to-end pipeline. While promising, these models remain too large (>3–7B params) for smooth mobile inference today. Experimental quantized versions are included to evaluate future viability as devices become more capable.</li>
+      <li><strong>Imp (2024)</strong> – A recently released mobile-optimized multimodal language model (<a href="https://imp-vl.github.io/" target="_blank">https://imp-vl.github.io/</a>) that achieves GPT-4V–level performance with only 3B parameters. This makes it a strong candidate for future on-device image-to-text translation without separate OCR.</li>
+    </ul>
   </div>
 
   <div id="design-doc" class="tab-content">
@@ -132,13 +231,43 @@
 
   <div id="evaluation" class="tab-content">
     <h2>Evaluation Methodology</h2>
+    <p>To assess the performance of each pipeline, we will conduct evaluations focusing on both individual components and the overall system:</p>
+    <h3>Component-Level Evaluation</h3>
     <ul>
-      <li>OCR accuracy across different scripts and lighting conditions</li>
-      <li>Correctness of language detection</li>
-      <li>Translation quality compared to Apple Translate</li>
-      <li>Speed and latency on-device</li>
+      <li><strong>OCR Accuracy</strong>:
+        <ul>
+          <li>Metrics: Character Error Rate (CER) and Word Error Rate (WER).</li>
+          <li>Test Set: A diverse set of images containing various scripts (Latin, Cyrillic, Devanagari, etc.) under different lighting conditions.</li>
+        </ul>
+      </li>
+      <li><strong>Language Detection</strong>:
+        <ul>
+          <li>Metrics: Accuracy and F1 Score.</li>
+          <li>Test Set: Text snippets in multiple languages, including low-resource languages.</li>
+        </ul>
+      </li>
+      <li><strong>Translation Quality</strong>:
+        <ul>
+          <li>Metrics: BLEU and METEOR scores.</li>
+          <li>Test Set: Standard translation benchmarks like WMT datasets, focusing on low-resource language pairs.</li>
+        </ul>
+      </li>
     </ul>
-
+    <h3>System-Level Evaluation</h3>
+    <ul>
+      <li><strong>End-to-End Accuracy</strong>:
+        <ul>
+          <li>Metrics: Overall translation accuracy from image input to translated text output.</li>
+          <li>Test Set: Real-world images with textual content in various languages.</li>
+        </ul>
+      </li>
+      <li><strong>Performance Metrics</strong>:
+        <ul>
+          <li>Latency: Time taken to process an image and produce the translation.</li>
+          <li>Resource Utilization: CPU and memory usage during processing.</li>
+        </ul>
+      </li>
+    </ul>
     <h3>Results & Learnings</h3>
     <p>(To be completed)</p>
   </div>
@@ -147,11 +276,14 @@
     <h2>Next Steps</h2>
     <h3>UI Updates</h3>
     <ul>
-      <li>Enable real-time camera capture in addition to photo uploads</li>
+      <li>Enable real-time camera capture in addition to photo uploads.</li>
+      <li>Enable in-place translations within the image (with bounding boxes).</li>
     </ul>
     <h3>Model Updates</h3>
     <ul>
-      <li>Explore smaller multimodal models that run efficiently on iOS</li>
+      <li>Explore smaller multimodal models that run efficiently on iOS.</li>
+      <li>Investigate the integration of transformer-based OCR models for improved accuracy.</li>
+      <li>Evaluate the use of quantization techniques to reduce model size and improve inference speed.</li>
     </ul>
   </div>
 

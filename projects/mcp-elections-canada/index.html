@@ -13,6 +13,31 @@
       padding: 0 20px;
       color: #222;
     }
+    .breadcrumb {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .breadcrumb a {
+      color: #6a0dad;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .arrow {
+      border: solid #6a0dad;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      margin-right: 8px;
+    }
+    .left {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
     h1, h2, h3 {
       color: #6a0dad;
     }
@@ -73,18 +98,21 @@
   </style>
 </head>
 <body>
-  <div class="nav-tabs">
-    <button class="nav-button" onclick="navigateTo('/')">BIO</button>
-    <button class="nav-button active" onclick="navigateTo('/projects')">PROJECTS</button>
-    <button class="nav-button" onclick="navigateTo('/other')">OTHER</button>
+  <div class="breadcrumb">
+    <a href="/projects"><i class="arrow left"></i> Back to Projects</a>
   </div>
 
   <h1>Model Context Protocol (MCP) Server and Client: Elections Canada</h1>
-  <p class="icon-container">
+  <p>
+    <span>Server: </span>
     <a href="https://github.com/ThreeFortyThree-Canada/elections-canada-mcp-server" target="_blank">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 24px; height: 24px;">
+      <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px;">
     </a>
-    <a href="https://pypi.org/project/elections-canada-mcp-server/" target="_blank" style="margin-left: 10px; font-size: 0.9em;">PyPI</a>
+    <a href="https://pypi.org/project/elections-canada-mcp-server/" target="_blank" style="margin-left: 5px; font-size: 0.9em;">PyPI</a>
+    <span style="margin-left: 10px;">Client: </span>
+    <a href="https://threefortythree.ca/chat" target="_blank">
+      <img class="icon" src="/assets/world-www.svg" alt="Web" style="width: 20px; height: 20px; margin-left: 5px;">
+    </a>
   </p>
 
   <div class="tabs">
