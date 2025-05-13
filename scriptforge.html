@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ScriptForge: Agentic Product for Movie and TV | Rohan Sampath</title>
+  <title>ScriptForge: Agentic Screenwriting Assistant for Film & TV | Rohan Sampath</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -50,9 +50,10 @@
   </style>
 </head>
 <body>
-  <h1>ScriptForge: Agentic Product for Movie and TV</h1>
+  <h1>ScriptForge: Agentic Screenwriting Assistant for Film & TV</h1>
   <p>
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 24px; height: 24px; opacity: 0.4;">
+    <span style="font-size: 0.9em; color: #777; margin-left: 8px;">(Repo currently private due to active commercial negotiations.)</span>
   </p>
 
   <div class="tabs">
@@ -66,16 +67,18 @@
 
   <div id="overview" class="tab-content active">
     <h2>Description</h2>
-    <p>ScriptForge is a writer assistant tool that helps you draft scripts in multiple formats and genres. It lets you preserve creative control over your style, vision, and story while dramatically lowering the time to write a script.</p>
+    <p>A writer assistant that lets you co-author screenplays in multiple genres and formats with fine-grained control over collaboration. Uses a multi-agent architecture with a supervisor agent and multiple specialized worker agents. Built using LangGraph (soon moving to OpenAI Agents SDK), it orchestrates a multi-agent system where a human and LLM "Writer Agent" alternate turns in drafting, rewriting, and structuring scenes.</p>
+
+    <p>This approach preserves authorial voice and creative direction while drastically reducing the time to a complete screenplay. Includes tooling for test-time LLM selection, turn management protocols, and structured prompt libraries tailored for screenwriting.</p>
 
     <h2>Use Case</h2>
-    <p>Ideal for screenwriters, playwrights, and content creators who want to accelerate their writing process without sacrificing creative control.</p>
+    <p>Ideal for screenwriters, playwrights, and content creators who want to accelerate their writing process without sacrificing creative control. Particularly useful for both novice screenwriters learning the craft and expert writers looking to speed up their workflow.</p>
 
-    <h2>Market Comparison</h2>
-    <p>Unlike generic AI writing assistants, ScriptForge is specifically designed for script formats with fine-grained control over how often the LLM "Writer Agent" takes turns versus the human writer.</p>
+    <h2>Key Differentiator</h2>
+    <p>Configurable control over how often the LLM "Writer Agent" takes turns vs. the human writer — useful for both novice and expert screenwriters.</p>
 
-    <h2>Commercial Feasibility</h2>
-    <p>3/5 – Currently exploring potential commercial applications as well as copyright implications.</p>
+    <h2>Technical Stack</h2>
+    <p>LLM agents · LangGraph · LangSmith (observability) · Model Context Protocol · Multi-agent orchestration · OpenAI Agents SDK</p>
   </div>
 
   <div id="technical-goals" class="tab-content">
