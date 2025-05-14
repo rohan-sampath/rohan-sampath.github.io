@@ -160,7 +160,7 @@
       <li><strong>Augmentation:</strong> Improve OCR and translation quality by integrating fallback local models—such as Google MLKit for OCR and Meta's M2M-100 (418M) for translation—when Apple's stack fails or lacks language support.</li>
       <li><strong>Exploration:</strong> Investigate the viability of running compact vision-language models (e.g., MiniGPT-style) that perform image-to-translation in a single step.</li>
       <li><strong>iOS Development:</strong> Implement the app entirely in Swift, deepening familiarity with Apple's mobile SDKs, including model integration and on-device inference.</li>
-      <li><strong>Local Model Deployment:</strong> Explore the practical constraints of edge deployment—converting models (e.g., via <code>coremltools</code> or ONNX), managing memory footprint, tuning latency, and leveraging Apple hardware accelerators like the Neural Engine (ANE).</li>
+      <li><strong>Local Model Deployment:</strong> Explore the practical constraints of edge deployment—converting models (e.g., via <code>coremltools</code>), managing memory footprint, tuning latency, and leveraging Apple hardware accelerators like the Neural Engine (ANE).</li>
     </ul>
   </div>
 
@@ -191,8 +191,8 @@
       <li><strong>Hybrid pipeline:</strong>
         <ul>
           <li>OCR: Primary – Apple Vision; Fallback – Google MLKit (for multilingual printed text)</li>
-          <li>Language Detection: Primary – Apple Natural Language; Fallback – FastText (converted to CoreML for efficient edge inference)</li>
-          <li>Translation: Primary – Apple Translate; Fallback – Meta M2M-100 (418M), running via ONNX or Core ML with int8 quantization for near real-time performance</li>
+          <li>Language Detection: Primary – Apple Natural Language</li>
+          <li>Translation: Primary – Apple Translate; Fallback – Meta M2M-100 (418M), running via Core ML with int8 quantization for near real-time performance</li>
         </ul>
       </li>
       <li><strong>End-to-end vision-language model:</strong>
@@ -220,6 +220,7 @@
       <li><strong>MarianMT and OPUS-MT</strong> models were also considered for translation. While lighter in size, they often underperform M2M-100.</li>
       <li><strong>Tesseract OCR and PaddleOCR</strong> were reviewed as alternatives to Apple Vision and MLKit. However, they were deprioritized due to lower mobile inference performance and less seamless integration with iOS. PaddleOCR remains under consideration for future low-resource script support.</li>
       <li><strong>MiniGPT-4, BLIP-2</strong>, and other open multimodal models were explored for the end-to-end pipeline. While promising, these models remain too large (>3–7B params) for smooth mobile inference today. Experimental quantized versions are included to evaluate future viability as devices become more capable.</li>
+      <li><strong>Gemini Nano</strong> (<a href="https://deepmind.google/technologies/gemini/nano/" target="_blank">https://deepmind.google/technologies/gemini/nano/</a>) is one of the most promising, highly capable on-device models. However, at the moment it is not available for use on iOS devices.</li>
       <li><strong>Imp (2024)</strong> – A recently released mobile-optimized multimodal language model (<a href="https://imp-vl.github.io/" target="_blank">https://imp-vl.github.io/</a>) that achieves GPT-4V–level performance with only 3B parameters. This makes it a strong candidate for future on-device image-to-text translation without separate OCR.</li>
     </ul>
   </div>
@@ -269,7 +270,7 @@
       </li>
     </ul>
     <h3>Results & Learnings</h3>
-    <p>(To be completed)</p>
+    <p>(In progress)</p>
   </div>
 
   <div id="next-steps" class="tab-content">
@@ -282,7 +283,6 @@
     <h3>Model Updates</h3>
     <ul>
       <li>Explore smaller multimodal models that run efficiently on iOS.</li>
-      <li>Investigate the integration of transformer-based OCR models for improved accuracy.</li>
       <li>Evaluate the use of quantization techniques to reduce model size and improve inference speed.</li>
     </ul>
   </div>

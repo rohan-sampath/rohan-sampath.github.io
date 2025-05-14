@@ -147,9 +147,11 @@
 
   <div id="projects" class="tab-content">
   <div class="project-card">
-    <h3><a href="/projects/offline-translation">Offline Translation</a></h3>
-    <p>A mobile app that performs offline image-to-text translation entirely using local models. It explores CoreML-based pipelines vs. multimodal architectures, built in Swift for iOS. <strong>Key result:</strong> Using a small, locally deployed multimodal model (i) improves text recognition and translation quality, and (ii) enhances support for low-resource languages, outperforming the Apple Translate app.</p>
-    <p class="tags">Keywords: CoreML, Apple Vision, Apple Language, Apple Translation, OCR, Swift</p>
+    <h3><a href="/projects/offline-translation">Offline Translation: On-Device Image-to-Text Translator for iOS</a></h3>
+    <p>An iOS app that translates text in images fully offline using on-device models—no internet required. Built in Swift, it supports three pipelines with the same UI/UX: (i) Apple-native components (Vision, Core ML, Translate), (ii) hybrid open-source models such as MLKit (OCR) and M2M-100 (Translation), and (iii) compact vision-language models for direct image-to-translation.</p>
+    <p>The real-world use case envisioned is travelers or users without an internet connection who need fast and private translation of real-world text, such as road signs, menus, forms, or instructions.</p>
+    <p>Key research questions: Can a custom pipeline: (1) Translation Quality: Provide improved image-to-text translation accuracy for the languages currently supported by Apple? (2) Language Coverage: Provide working translation pipelines for languages not supported by Apple?</p>
+    <p class="tags">Keywords: CoreML, Apple Vision, Apple Language, Apple Translate, MLKit, OCR, M2M-100, miniGPT4, on-device translation, Swift, iOS, mobile AI, on-device model</p>
     <p>
       <a href="https://github.com/rohan-sampath/OfflineTranslation" target="_blank">
         <img class="icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px;">
