@@ -5,7 +5,8 @@
 /scriptforge.html /projects/ 301
 
 # Application redirects
-/applications/sierra-1031e6ec /cover-letters/sierra-cover-letter.html 301
+/sierra-1031e6ec /cover-letters/sierra-1031e6ec/ 301
+/cover-letters/sierra-cover-letter.html /cover-letters/sierra-1031e6ec/ 301
 
 # Handle folder paths
 /projects /projects/ 301
